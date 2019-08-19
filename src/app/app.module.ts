@@ -4,6 +4,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
+import { DataTableModule } from 'angular7-data-table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +25,10 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
 import { UserService } from './user.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { CategoryService } from './category.service';
+import { ProductService } from './product.service';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -35,11 +42,15 @@ import { AdminAuthGuard } from './admin-auth-guard.service';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    CustomFormsModule,
+    DataTableModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -48,8 +59,10 @@ import { AdminAuthGuard } from './admin-auth-guard.service';
   providers: [
     AuthService,
     AuthGuard,
+    AdminAuthGuard,
     UserService,
-    AdminAuthGuard
+    CategoryService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
