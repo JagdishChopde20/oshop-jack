@@ -3,6 +3,7 @@ import { CategoryService } from 'src/app/category.service';
 import { ProductService } from 'src/app/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-product-form',
@@ -19,7 +20,7 @@ export class ProductFormComponent implements OnInit {
     private route: ActivatedRoute,
     categoryService: CategoryService,
     private productService: ProductService) {
-    this.categories$ = categoryService.getCategories();
+    this.categories$ = categoryService.getAll();
 
     this.id = route.snapshot.paramMap.get('id');
     if (this.id) productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);
