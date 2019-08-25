@@ -15,12 +15,12 @@ export class ProductService {
 
   getAll() {
     return this.db.list('/products')
-      .snapshotChanges().pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))));
+      .snapshotChanges().pipe(map(changes => changes.map(c => ({ $key: c.payload.key, ...c.payload.val() }))));
   }
 
   get(prouductId) {
     return this.db.object('/products/' + prouductId)
-    .snapshotChanges().pipe(map(c => ({ key: c.payload.key, ...c.payload.val() })));
+    .snapshotChanges().pipe(map(c => ({ $key: c.payload.key, ...c.payload.val() })));
   }
 
   update(productId, product) {
