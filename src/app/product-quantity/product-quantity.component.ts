@@ -12,14 +12,10 @@ export class ProductQuantityComponent {
   @Input('shopping-cart') shoppingCart;
 
   constructor(private cartService: ShoppingCartService) { 
-    console.log('Product: ' + this.product);
-    console.log('shoppingCart: ' + this.shoppingCart);
   }
 
   addToCart() {
     this.cartService.addToCart(this.product);
-    console.log('Product: ' + this.product);
-    console.log('shoppingCart: ' + this.shoppingCart);
   }
 
   removeFromCart() {
