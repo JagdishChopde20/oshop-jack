@@ -1,9 +1,0 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
-/* @import "~@fortawesome/fontawesome-free/css/fontawesome.min.css"; */
-
-body { padding: 80px; }
-
-.btn.btn-default  {
-    background-color: #e9ecef;
-}
