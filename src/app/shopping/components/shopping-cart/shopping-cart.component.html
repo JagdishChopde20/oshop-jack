@@ -4,8 +4,9 @@
     <div class="card-body">
         <p>
             You have {{ cart.totalItemsCount }} items in your shopping cart.
-            <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-light btn-sm">Clear
-                Shopping Cart</button>
+            <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-danger btn-sm">
+                Clear Shopping Cart <i class="fas fa-trash"></i>
+            </button>
         </p>
         <table class="table">
             <thead>
@@ -28,7 +29,7 @@
                         <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
                     </td>
                     <td class="text-right">
-                        {{ item.totalPrice | currency:'USD':'symbol' }}
+                        {{ item.totalPrice | currency:'INR':'symbol' }}
                     </td>
                 </tr>
             </tbody>
@@ -37,10 +38,10 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th class="text-right">{{ cart.totalPrice | currency:'USD':'symbol' }} </th>
+                    <th class="text-right">{{ cart.totalPrice | currency:'INR':'symbol' }} </th>
                 </tr>
             </tfoot>
         </table>
-        <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a>
+        <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary btn-block">Check Out <i class="fas fa-arrow-right"></i></a>
     </div>
 </div>

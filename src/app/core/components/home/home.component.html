@@ -1,3 +1,42 @@
-<p>home works!</p>
+<ngb-carousel #carousel interval="2500" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+        <div>
+            <a routerLink="/products" [queryParams]="{ category: img.category }" rel="nofollow noopener noreferrer">
+                <div class="carousel-caption">
+                    <h3 class="display-4"> {{ img.title }} </h3>
+                </div>
+                <div class="picsum-img-wrapper">
+                    <!-- <img [src]="img" alt="My image {{i + 1}} description"> -->
+                    <div [style.backgroundImage]="'url(' + img.imgUrl + ')'" class="thumbnail" alt=""></div>
+                </div>
+            </a>
+        </div>
+    </ng-template>
+</ngb-carousel>
 
-<i class="fas fa-address-card"></i>
+<h1 class="display-4 text-center" style="color: #05be68">Welcome to The Organic Shop</h1>
+
+
+<div class="row">
+    <div *ngFor="let img of images; index as i" class="col-md-4">
+        <a routerLink="/products" [queryParams]="{ category: img.category }" rel="nofollow noopener noreferrer">
+            <div class="card">
+                <img class="card-img" [src]="img.imgUrl" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">{{ img.category | uppercase }}</h5>
+                    <p class="card-text"> <code> {{ img.title }} </code></p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a routerLink="/products" rel="nofollow noopener noreferrer">
+            <div class="card">
+                <img class="card-img" src="https://cdn.pixabay.com/photo/2017/10/22/20/38/table-2879201_1280.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <h5 class="card-title"> EXPLORE ALL PRODUCTS</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

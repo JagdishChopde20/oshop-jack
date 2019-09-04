@@ -4,6 +4,7 @@ import { AppUser } from 'shared/models/app-user';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { Observable } from 'rxjs';
+import { CategoryService } from 'shared/services/category.service';
 
 @Component({
   selector: 'bs-navbar',
@@ -13,8 +14,10 @@ import { Observable } from 'rxjs';
 export class BsNavbarComponent implements OnInit {
   appUser: AppUser;
   cart$: Observable<ShoppingCart>;
+  categories$;
 
-  constructor(private auth: AuthService, private shoppingCartService: ShoppingCartService) {
+  constructor(private auth: AuthService, private shoppingCartService: ShoppingCartService, categoryService: CategoryService) {
+    this.categories$ = categoryService.getAll();
   }
 
   async ngOnInit() {

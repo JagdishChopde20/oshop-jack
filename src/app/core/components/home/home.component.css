@@ -1,0 +1,6 @@
+.thumbnail {
+    height: 300px;
+    border-radius: 0%;
+    background-size: cover;
+    background-position: center;
+}

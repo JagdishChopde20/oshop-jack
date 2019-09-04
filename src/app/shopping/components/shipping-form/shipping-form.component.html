@@ -14,7 +14,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label for=""></label>
           <input #addressLine2="ngModel" name="addressLine2" [(ngModel)]="shipping.addressLine2" type="text" class="form-control" placeholder="Line 2" required>
           <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
             <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
@@ -29,5 +28,5 @@
         </div>
         <button 
           (click)="placeOrder()" [disabled]="f.invalid"
-          class="btn btn-primary">Place Order</button>
+          class="btn btn-primary btn-block">Place Order <i class="fas fa-arrow-right"></i></button>
       </form>
