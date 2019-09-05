@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { fade, fadeStagger, slideUpAnimation, slideDown_HomeTitle_Animation } from 'src/app/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  animations: [
+    fade, fadeStagger, slideUpAnimation, slideDown_HomeTitle_Animation
+  ]
 })
 export class HomeComponent implements OnInit {
 
@@ -19,8 +23,8 @@ export class HomeComponent implements OnInit {
   images = [
     { imgUrl: 'https://cdn.pixabay.com/photo/2015/12/30/11/57/fruit-basket-1114060_1280.jpg', title: 'Explore variety of fruits', category: 'fruits' },
     { imgUrl: 'https://cdn.pixabay.com/photo/2018/03/11/18/34/brown-eggs-3217675_1280.jpg', title: 'Fresh Dairy Products', category: 'dairy' },
-    { imgUrl: 'https://cdn.pixabay.com/photo/2013/12/15/16/36/bread-228939_1280.jpg', title: 'Freshly Backed Breads', category: 'bread' },
     { imgUrl: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/vegetables-1238252_1280.jpg', title: 'Organic Range of Vegetables', category: 'vegetables' },
+    { imgUrl: 'https://cdn.pixabay.com/photo/2013/12/15/16/36/bread-228939_1280.jpg', title: 'Freshly Backed Breads', category: 'bread' },
     { imgUrl: 'https://cdn.pixabay.com/photo/2015/08/02/22/18/barley-872000_1280.jpg', title: 'Seasoning and Spices', category: 'seasonings' },
   ]
 

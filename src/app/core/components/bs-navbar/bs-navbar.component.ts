@@ -5,11 +5,13 @@ import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { Observable } from 'rxjs';
 import { CategoryService } from 'shared/services/category.service';
+import { slideRightAnimation } from 'src/app/animations';
 
 @Component({
   selector: 'bs-navbar',
   templateUrl: './bs-navbar.component.html',
-  styleUrls: ['./bs-navbar.component.css']
+  styleUrls: ['./bs-navbar.component.css'],
+  animations: [ slideRightAnimation ]
 })
 export class BsNavbarComponent implements OnInit {
   appUser: AppUser;

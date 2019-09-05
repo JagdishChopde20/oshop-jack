@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" routerLink="/">
+        <a class="navbar-brand" routerLink="/" @slideRightAnimation>
             <i class="fas fa-leaf"></i>
             Oshop
         </a>
@@ -30,7 +30,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/shopping-cart">
-                        <i class="fas fa-shopping-cart"></i> &nbsp;
+                        <i class="fas fa-shopping-cart text-warning"></i> 
                         <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
                             {{ cart.totalItemsCount }}
                         </span>

@@ -3,7 +3,8 @@
         <button (click)="removeFromCart()" class="btn btn-sm btn-light btn-block"><i class="fas fa-minus"></i></button>
     </div>
     <div class="col text-center">
-        {{ shoppingCart.getQuantity(product) }} in cart
+        <i class="fas fa-shopping-cart text-warning"></i>
+        <span class="badge badge-warning badge-pill">{{ shoppingCart.getQuantity(product) }}</span>
     </div>
     <div class="col-2">
         <button (click)="addToCart()" class="btn btn-sm btn-light btn-block"><i class="fas fa-plus"></i></button>

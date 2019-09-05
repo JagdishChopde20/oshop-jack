@@ -1,6 +1,6 @@
 <ngb-carousel #carousel interval="2500" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let img of images; index as i">
-        <div>
+        <div @slideUpAnimation>
             <a routerLink="/products" [queryParams]="{ category: img.category }" rel="nofollow noopener noreferrer">
                 <div class="carousel-caption">
                     <h3 class="display-4"> {{ img.title }} </h3>
@@ -14,13 +14,13 @@
     </ng-template>
 </ngb-carousel>
 
-<h1 class="display-4 text-center" style="color: #05be68">Welcome to The Organic Shop</h1>
+<h1 @slideDown_HomeTitle_Animation class="display-4 text-center" style="color: #05be68">Welcome to The Organic Shop</h1>
 
 
-<div class="row">
-    <div *ngFor="let img of images; index as i" class="col-md-4">
+<div class="row" @fade>
+    <div @fadeStagger *ngFor="let img of images; index as i" class="col-md-4 mb-4">
         <a routerLink="/products" [queryParams]="{ category: img.category }" rel="nofollow noopener noreferrer">
-            <div class="card">
+            <div class="card img-hover-zoom">
                 <img class="card-img" [src]="img.imgUrl" alt="Card image">
                 <div class="card-img-overlay">
                     <h5 class="card-title">{{ img.category | uppercase }}</h5>
@@ -29,14 +29,20 @@
             </div>
         </a>
     </div>
-    <div class="col-md-4">
+    <div @fadeStagger class="col-md-4 mb-4">
         <a routerLink="/products" rel="nofollow noopener noreferrer">
-            <div class="card">
-                <img class="card-img" src="https://cdn.pixabay.com/photo/2017/10/22/20/38/table-2879201_1280.jpg" alt="Card image">
+            <div class="card img-hover-zoom">
+                <img class="card-img" src="https://cdn.pixabay.com/photo/2017/10/22/20/38/table-2879201_1280.jpg"
+                    alt="Card image">
                 <div class="card-img-overlay">
                     <h5 class="card-title"> EXPLORE ALL PRODUCTS</h5>
                 </div>
             </div>
         </a>
     </div>
+</div>
+
+
+<div class="img-hover-zoom">
+    <img class="card-img" src="https://cdn.pixabay.com/photo/2017/10/22/20/38/table-2879201_1280.jpg" alt="Card image">
 </div>

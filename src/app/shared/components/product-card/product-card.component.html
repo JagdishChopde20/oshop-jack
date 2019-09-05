@@ -1,10 +1,15 @@
 <div *ngIf="product.title" class="card h-100">
-
-    <img [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}" *ngIf="product.imageUrl">
+    <div class="img-hover-zoom">
+        <img [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}" *ngIf="product.imageUrl">
+    </div>
 
     <div class="card-body">
-        <h5 class="card-title">{{ product.title }}</h5>
-        <p class="card-text"> {{ product.price | currency:'INR':'symbol' }} </p>
+        <h5 class="card-title lead">{{ product.title }}</h5>
+        <p class="card-text">
+            <span class="badge badge-secondary badge-pill">
+                {{ product.price | currency:'INR':'symbol' }}
+            </span>
+        </p>
     </div>
     <div *ngIf="showActions && shoppingCart" class="card-footer">
         <button *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity" (click)="addToCart()"
