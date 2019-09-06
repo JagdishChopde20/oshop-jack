@@ -1,9 +1,9 @@
 <div class="sticky-top">
-    <div @fade @slideUpAnimation class="list-group">
-        <a @fadeStagger routerLink="/products" class="list-group-item list-group-item-action" [class.active]="!category">
+    <div @slideUpAnimation class="list-group">
+        <a routerLink="/products" class="list-group-item list-group-item-action" [class.active]="!category">
             All Categories
         </a>
-        <a @fadeStagger *ngFor="let c of categories$ | async" routerLink="/products" [queryParams]="{ category: c.key }"
+        <a *ngFor="let c of categories$ | async" routerLink="/products" [queryParams]="{ category: c.key }"
             class="list-group-item list-group-item-action" [class.active]="category === c.key">
             {{ c.name }}
         </a>

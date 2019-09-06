@@ -5,24 +5,27 @@
     <input #query (keyup)="filter(query.value)" class="form-control" placeholder="Search...">
 </p>
 
+<div @slideCartItems>
+    <data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
+        <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true">
+        </data-table-column>
 
-<data-table [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
-    <data-table-column [property]="'title'" [header]="'Title'" [sortable]="true" [resizable]="true"></data-table-column>
+        <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
+            <ng-template #dataTableCell let-item="item">
+                {{ item.price | currency:'INR':'symbol' }}
+            </ng-template>
+        </data-table-column>
 
-    <data-table-column [property]="'price'" [header]="'Price'" [sortable]="true" [resizable]="true">
-        <ng-template #dataTableCell let-item="item">
-            {{ item.price | currency:'INR':'symbol' }}
-        </ng-template>
-    </data-table-column>
+        <data-table-column [property]="'key'">
+            <ng-template #dataTableCell let-item="item">
+                <a [routerLink]="['/admin/products', item.$key]" class="btn btn-info"><i class="fas fa-pen-alt"></i>
+                    Edit</a>
+            </ng-template>
+        </data-table-column>
 
-    <data-table-column [property]="'key'">
-        <ng-template #dataTableCell let-item="item">
-            <a [routerLink]="['/admin/products', item.$key]">Edit</a>
-        </ng-template>
-    </data-table-column>
-
-</data-table>
-
+    </data-table>
+</div>
+<br><br>
 <!-- 
 <table class="table">
     <thead>

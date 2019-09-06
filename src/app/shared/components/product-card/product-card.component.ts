@@ -19,4 +19,8 @@ export class ProductCardComponent {
     this.cartService.addToCart(this.product);
   }
 
+  openImgModal() {
+    this.cartService.selectedItem = this.product;
+    // console.log(this.cartService.selectedItem);
+  }
 }

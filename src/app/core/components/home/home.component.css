@@ -1,7 +1,12 @@
 .thumbnail {
-    height: 300px;
+    height: 250px;
     border-radius: 0%;
     background-size: cover;
     background-position: center;
+}
+
+ngb-carousel {
+    width: inherit;
+    height: inherit;
 }
 

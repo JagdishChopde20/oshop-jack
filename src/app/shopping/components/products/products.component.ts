@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private shoppingCartService: ShoppingCartService) {
+    public shoppingCartService: ShoppingCartService) {
   }
 
   async ngOnInit() {

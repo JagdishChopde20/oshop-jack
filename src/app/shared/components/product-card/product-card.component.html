@@ -1,5 +1,5 @@
 <div *ngIf="product.title" class="card h-100">
-    <div class="img-hover-zoom">
+    <div class="img-hover-zoom" (click)="openImgModal()" data-toggle="modal" data-target="#productImgModal" style="cursor: pointer">
         <img [src]="product.imageUrl" class="card-img-top" alt="{{product.title}}" *ngIf="product.imageUrl">
     </div>
 
@@ -19,3 +19,4 @@
         </ng-template>
     </div>
 </div>
+

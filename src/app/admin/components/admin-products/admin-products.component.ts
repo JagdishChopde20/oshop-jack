@@ -3,11 +3,13 @@ import { ProductService } from 'shared/services/product.service';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/shared/models/product';
 import { DataTableResource } from 'angular7-data-table';
+import { slideCartItems } from 'src/app/animations';
 
 @Component({
   selector: 'app-admin-products',
   templateUrl: './admin-products.component.html',
-  styleUrls: ['./admin-products.component.css']
+  styleUrls: ['./admin-products.component.css'],
+  animations: [ slideCartItems ]
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
   products: Product[];

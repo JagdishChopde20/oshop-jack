@@ -1,4 +1,4 @@
-<h1>Shopping Cart</h1>
+<h1 class="display-4">Shopping Cart</h1>
 
 <div class="card" *ngIf="cart$ | async as cart">
     <!-- style="width: 80%;" -->
@@ -6,7 +6,7 @@
         <p>
             You have {{ cart.totalItemsCount }} items in your shopping cart.
             <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-danger btn-sm">
-                Clear Shopping Cart <i class="fas fa-trash"></i>
+              <span class=" d-none d-sm-inline">Clear Shopping Cart &nbsp; </span> <i class="fas fa-trash"></i>
             </button>
         </p>
         <table class="table">
@@ -14,15 +14,15 @@
                 <tr>
                     <th></th>
                     <th>Product</th>
-                    <th class="text-center" style="width: 230px">Quantity</th>
-                    <th class="text-right" style="width: 230px">Price</th>
+                    <th class="text-center" >Quantity</th>
+                    <th class="text-right" >Price</th>
                 </tr>
             </thead>
             <ng-container *ngIf="cart.items.length">
                 <tbody @slideCart>
                     <tr @slideCartItems *ngFor="let item of cart.items">
                         <td>
-                            <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail" alt=""></div>
+                            <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail d-none d-sm-block" alt=""></div>
                         </td>
                         <td>
                             {{ item.title }}

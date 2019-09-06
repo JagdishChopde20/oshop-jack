@@ -10,6 +10,7 @@ import { ShoppingCartItem } from 'shared/models/shopping-cart.item';
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  selectedItem;
   
   constructor(private db: AngularFireDatabase) { }
 

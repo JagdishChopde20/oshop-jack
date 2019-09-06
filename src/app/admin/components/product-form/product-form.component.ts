@@ -39,6 +39,9 @@ export class ProductFormComponent implements OnInit {
     this.router.navigate(['/admin/products']);
   }
 
+  goBack() {
+    window.history.back();
+  }
   ngOnInit() {
   }
 

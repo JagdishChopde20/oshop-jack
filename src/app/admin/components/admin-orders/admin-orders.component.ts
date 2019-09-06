@@ -1,16 +1,17 @@
-import { Order } from 'shared/models/order';
+import { Component } from '@angular/core';
 import { OrderService } from 'shared/services/order.service';
-import { Component, OnInit } from '@angular/core';
+import { slideCartItems } from 'src/app/animations';
 
 @Component({
   selector: 'app-admin-orders',
   templateUrl: './admin-orders.component.html',
-  styleUrls: ['./admin-orders.component.css']
+  styleUrls: ['./admin-orders.component.css'],
+  animations: [ slideCartItems ]
 })
 export class AdminOrdersComponent {
   orders$;
 
-  constructor(private orderService: OrderService) { 
+  constructor(orderService: OrderService) { 
     this.orders$ = orderService.getOrders();
   }
 }

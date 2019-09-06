@@ -60,7 +60,7 @@ export let slideRightAnimation = trigger('slideRightAnimation', [
 
 export let slideDown_HomeTitle_Animation = trigger('slideDown_HomeTitle_Animation', [
   transition(':enter', [
-    style({ transform: 'translateY(-200px)' }),
+    style({ transform: 'translateY(-150px)' }),
     animate('2s 2s ease-out')
   ])
 ]);

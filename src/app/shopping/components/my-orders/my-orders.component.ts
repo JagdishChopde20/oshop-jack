@@ -1,12 +1,13 @@
+import { Component } from '@angular/core';
 import { AuthService } from 'shared/services/auth.service';
 import { OrderService } from 'shared/services/order.service';
-import { Component, OnInit } from '@angular/core';
-import { map, switchMap, take } from 'rxjs/operators';
+import { slideCartItems } from 'src/app/animations';
 
 @Component({
   selector: 'app-my-orders',
   templateUrl: './my-orders.component.html',
-  styleUrls: ['./my-orders.component.css']
+  styleUrls: ['./my-orders.component.css'],
+  animations: [ slideCartItems ]
 })
 export class MyOrdersComponent {
   orders$;
