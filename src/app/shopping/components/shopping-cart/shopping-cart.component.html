@@ -20,7 +20,7 @@
             </thead>
             <ng-container *ngIf="cart.items.length">
                 <tbody @slideCart>
-                    <tr @slideCartItems *ngFor="let item of cart.items">
+                    <tr *ngFor="let item of cart.items">
                         <td>
                             <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail d-none d-sm-block" alt=""></div>
                         </td>

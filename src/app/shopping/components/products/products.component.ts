@@ -5,14 +5,13 @@ import { Product } from 'shared/models/product';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { ProductService } from 'shared/services/product.service';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
-import { fade, fadeStagger } from 'src/app/animations';
-import { take } from 'rxjs/operators';
+import { fade, fadeStagger, heartBeat } from 'src/app/animations';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-  animations: [ fade, fadeStagger ]
+  animations: [ fade, fadeStagger, heartBeat ]
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
@@ -49,5 +48,11 @@ export class ProductsComponent implements OnInit {
     this.filteredProducts = (this.category) ?
       this.products.filter(p => p.category === this.category) :
       this.products;
+  }
+
+  searchFilter(query: string) {
+    this.filteredProducts = (this.category) ?
+      this.products.filter(p => p.category === this.category && p.title.toLowerCase().includes(query.toLowerCase())) :
+      this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
   }
 }

@@ -100,9 +100,50 @@ export let slideCartItems = trigger('slideCartItems', [
 export let slideCart = trigger('slideCart', [
   transition(':enter', [
     group([
-      query(':enter', stagger(200, animateChild()))
+      query(':enter', stagger(200, useAnimation(slideInAnimation)))
     ])
   ]),
   transition(':leave', useAnimation(bounceOutLeftAnimation)
   )
+]);
+
+
+
+export let heartBeatAnimation = animation(
+  animate('1.3s 4s ease-in-out', keyframes([
+    style({
+      offset: 0,
+      opacity: .5,
+      transform: 'scale(1)'
+    }),
+    style({
+      offset: .14,
+      opacity: .75,
+      transform: 'scale(1.3)'
+    }),
+    style({
+      offset: .28,
+      opacity: 1,
+      transform: 'scale(1)'
+    }),
+    style({
+      offset: .42,
+      transform: 'scale(1.3)'
+    }),
+    style({
+      offset: .7,
+      transform: 'scale(1)'
+    }),
+  ]))
+);
+
+export let heartBeat = trigger('heartBeat', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    useAnimation(heartBeatAnimation, {
+      params: {
+        duration: '1.3s'
+      }
+    })
+  ])
 ]);

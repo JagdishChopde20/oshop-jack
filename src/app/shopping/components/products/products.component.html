@@ -3,6 +3,17 @@
         <product-filter [category]="category"></product-filter>
     </div>
     <div class="col">
+        <div @heartBeat class="input-group mb-4">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input #query (keyup)="searchFilter(query.value)" class="form-control"
+                placeholder="Search products within category...">
+            <div class="input-group-append">
+                <button class="btn btn-outline-danger" type="button" id="button-addon2" (click)="query.value = ''; searchFilter(query.value);" ><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+
         <ng-container *ngIf="filteredProducts.length">
             <div class="row" [@fade]="filteredProducts.length" *ngIf="cart$ | async as cart">
                 <ng-container *ngFor="let p of filteredProducts; let i = index">

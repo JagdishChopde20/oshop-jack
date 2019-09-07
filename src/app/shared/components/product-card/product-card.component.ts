@@ -21,6 +21,5 @@ export class ProductCardComponent {
 
   openImgModal() {
     this.cartService.selectedItem = this.product;
-    // console.log(this.cartService.selectedItem);
   }
 }
