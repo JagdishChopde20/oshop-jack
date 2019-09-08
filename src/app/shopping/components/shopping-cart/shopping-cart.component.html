@@ -9,20 +9,20 @@
               <span class=" d-none d-sm-inline">Clear Shopping Cart &nbsp; </span> <i class="fas fa-trash"></i>
             </button>
         </p>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
-                <tr>
-                    <th></th>
+                <tr class="bg-secondary">
+                    <th class="d-none d-sm-block"> &nbsp; </th>
                     <th>Product</th>
-                    <th class="text-center" >Quantity</th>
-                    <th class="text-right" >Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-right">Price</th>
                 </tr>
             </thead>
             <ng-container *ngIf="cart.items.length">
                 <tbody @slideCart>
                     <tr *ngFor="let item of cart.items">
-                        <td>
-                            <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail d-none d-sm-block" alt=""></div>
+                        <td class=" d-none d-sm-block">
+                            <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail" alt=""></div>
                         </td>
                         <td>
                             {{ item.title }}
@@ -38,7 +38,7 @@
             </ng-container>
             <tfoot>
                 <tr>
-                    <th></th>
+                    <th class=" d-none d-sm-block"></th>
                     <th></th>
                     <th></th>
                     <th class="text-right">{{ cart.totalPrice | currency:'INR':'symbol' }} </th>
